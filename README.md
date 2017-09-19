@@ -11,11 +11,12 @@ The following agents are currently supported:
 
 * [Jolokia](https://github.com/rhuss/jolokia) - JMX-over-HTTP bridge
 * [jmx_exporter](https://github.com/prometheus/jmx_exporter) - [Prometheus'](http://prometheus.io/) JMX Agent
+* [Hawkular Java Agent](https://github.com/hawkular/hawkular-agent) - [Hawkular](http://hawkular.io)
 
 ### Usage
 
 ```
-java -javaagent:agent-bond.jar=jolokia{{port=8778}},jmx_exporter{{9779:config.yml}}
+java -javaagent:agent-bond.jar=jolokia{{port=8778}},jmx_exporter{{9779:config.yml},hawkular{{config=hawkular_javaagent_config.yml}}}
 ```
 
 The argument passed to the agent has the general format: 
@@ -31,6 +32,7 @@ Only agents referenced are enabled. The possible agent types are:
   The configuration for Jolokia can be omitted, it will take then the default values
 * **jmx_exporter** : Options for [jmx_exporter](https://github.com/prometheus/jmx_exporter) which are mandatory. 
   You need the port and the path to the configuration file like in `jmx_exporter{{9779:config.yml}}` 
+* **hawkular** : See [Hawkular](http://hawkular.io) for more. TODO: need more docs here.
  
 Alternatively instead of providing the configuration on the command line you can also specify the path to 
 a property file like in `-javaagent:agent-bond.jar=agent.properties` where the properties hold the configuration

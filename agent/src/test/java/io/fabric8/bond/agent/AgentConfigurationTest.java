@@ -38,6 +38,7 @@ public class AgentConfigurationTest {
         agentIds = new HashSet<>();
         agentIds.add("jolokia");
         agentIds.add("jmx_exporter");
+        agentIds.add("hawkular");
     }
 
     @Test
